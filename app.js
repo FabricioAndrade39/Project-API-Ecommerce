@@ -1,13 +1,9 @@
 import 'dotenv/config';
-import pg from 'pg';
+import express from 'express';
+import userRouter from './routes/userRoutes.js';
 
-const pool = new pg.Pool({
-  host: process.env.DB_HOST,
-  port: process.env.DB_PORT,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_DATABASE,
-});
+const app = express();
 
-const result = await pool.query('SELECT * FROM users');
-console.log(result.rows);
+app.use('/users', userRouter);
+
+app.listen(4000, () => console.log('API de Ecommerce está online'));
