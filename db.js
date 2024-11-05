@@ -1,4 +1,3 @@
-import 'dotenv/config';
 import pg from 'pg';
 
 const pool = new pg.Pool({
@@ -9,5 +8,4 @@ const pool = new pg.Pool({
   database: process.env.DB_DATABASE,
 });
 
-const result = await pool.query('SELECT * FROM users');
-console.log(result.rows);
+export default pool;
