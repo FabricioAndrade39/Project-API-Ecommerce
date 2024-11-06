@@ -1,5 +1,9 @@
 import { Router } from 'express';
+<<<<<<< HEAD
 import ProductRepositoryRepository from '../repository/ProductRepository.js';
+=======
+import ProductRepository from '../repository/ProductRepository.js';
+>>>>>>> db-express
 
 const router = Router();
 

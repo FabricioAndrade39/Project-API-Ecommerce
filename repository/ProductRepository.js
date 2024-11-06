@@ -29,4 +29,8 @@ class ProductRepository extends BaseRepository {
   }
 }
 
+<<<<<<< HEAD
 export default ProductRepositoryRepository;
+=======
+export default ProductRepository;
+>>>>>>> db-express
