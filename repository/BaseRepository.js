@@ -1,9 +1,25 @@
 import pool from './db.js';
 
 class BaseRepository {
-  async getAll(table) {
-    const results = (await pool.query(`SELECT * FROM ${table}`)).rows;
-    return results;
+  async getAll(table, columnsArray) {
+    try {
+      const results = (
+        await pool.query(`SELECT ${columnsArray.join()} FROM ${table}`)
+      ).rows;
+      return results;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async getById(table, columnsArray, id) {
+    try {
+      const queryText = `SELECT ${columnsArray.join()} From ${table} WHERE id = $1`;
+      const result = (await pool.query(queryText, [id])).rows[0];
+      return result;
+    } catch (error) {
+      throw error;
+    }
   }
 }
 
